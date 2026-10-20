@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "events": {
+      ".read": true,
+      "$eventId": {
+        ".write": "auth != null && auth.token.email_verified === true && auth.token.email === 'vampire.v.2.v@gmail.com' && auth.token.firebase.sign_in_provider === 'google.com'",
+        ".validate": "newData.hasChildren(['day', 'section', 'name']) && newData.child('day').isNumber() && (newData.child('day').val() === 1 || newData.child('day').val() === 2 || newData.child('day').val() === 3) && (newData.child('section').val() === 'sports' || newData.child('section').val() === 'edufun' || newData.child('section').val() === 'cultural') && newData.child('name').isString()",
+        "scores": {
+          "$teamId": {
+            ".write": "auth != null && auth.token.email_verified === true && auth.token.email === 'vampire.v.2.v@gmail.com' && auth.token.firebase.sign_in_provider === 'google.com' && ($teamId === 't1' || $teamId === 't2' || $teamId === 't3' || $teamId === 't4' || $teamId === 't5' || $teamId === 't6' || $teamId === 't7' || $teamId === 't8')",
+            ".validate": "newData.isNumber() && newData.val() >= -999 && newData.val() <= 9999"
+          }
+        }
+      },
+      ".indexOn": ["day", "section"]
+    }
+  }
+}
