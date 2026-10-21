@@ -5,11 +5,11 @@ const { HttpsError, onCall } = require("firebase-functions/v2/https");
 const eventSchedule = require("./events.seed.json");
 
 admin.initializeApp({
-  databaseURL: "https://tejas-3c29-default-rtdb.firebaseio.com"
+  databaseURL: "https://tejas-3c29b-default-rtdb.firebaseio.com"
 });
 const database = admin.database();
 const TEAM_IDS = ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8"];
-const ADMIN_EMAIL = "vampire.v.2.v@gmail.com";
+const ADMIN_EMAIL = "apoorv.00ps@gmail.com";
 
 async function requireGoogleUser(request) {
   if (!request.auth || !request.auth.uid) {

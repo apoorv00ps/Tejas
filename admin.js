@@ -11,7 +11,7 @@
     { id: "t7", name: "The Shadow Realms", short: "TSR" },
     { id: "t8", name: "The Guardians", short: "TGU" }
   ];
-  var ADMIN_EMAIL = "vampire.v.2.v@gmail.com";
+  var ADMIN_EMAIL = "apoorv.00ps@gmail.com";
   var MIN_SCORE = -999, MAX_SCORE = 9999;
   var $ = function (id) { return document.getElementById(id); };
   var status = $("admin-status"), initialized = false, db, auth, functions, unsubscribe = null;
@@ -117,7 +117,9 @@
     });
     if (!isGoogleUser || !user.email || !user.emailVerified ||
         user.email.trim().toLowerCase() !== ADMIN_EMAIL) {
-      throw new Error("Access denied. Sign in with the approved Google account " + ADMIN_EMAIL + ".");
+      var error = new Error("You are not an admin.");
+      error.code = "admin/not-authorized";
+      throw error;
     }
 
     $("login-card").hidden = true;
@@ -129,15 +131,17 @@
   }
 
   function rejectAdminSignIn(err) {
-    var detail = err.code ? err.code + ": " + err.message : err.message;
+    var message = err.code === "admin/not-authorized"
+      ? "You are not an admin."
+      : "Sign-in failed. Please try again.";
     return auth.signOut().then(function () {
       $("login-card").hidden = false;
       $("editor").hidden = true;
-      setStatus("Sign-in failed: " + detail, "error");
-    }, function (signOutError) {
+      setStatus(message, "error");
+    }, function () {
       $("login-card").hidden = false;
       $("editor").hidden = true;
-      setStatus("Sign-in failed: " + detail + " Sign-out also failed: " + signOutError.message, "error");
+      setStatus(message, "error");
     });
   }
 
