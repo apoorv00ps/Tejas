@@ -11,7 +11,7 @@
     { id: "t7", name: "The Shadow Realms", short: "TSR" },
     { id: "t8", name: "The Guardians", short: "TGU" }
   ];
-  var ADMIN_EMAIL = "apoorv.00ps@gmail.com";
+  var ADMIN_EMAILS = ["apoorv.00ps@gmail.com", "porwalmadhav47@gmail.com"];
   var MIN_SCORE = -999, MAX_SCORE = 9999;
   var $ = function (id) { return document.getElementById(id); };
   var status = $("admin-status"), initialized = false, db, auth, functions, unsubscribe = null;
@@ -116,7 +116,7 @@
       return provider.providerId === "google.com";
     });
     if (!isGoogleUser || !user.email || !user.emailVerified ||
-        user.email.trim().toLowerCase() !== ADMIN_EMAIL) {
+        ADMIN_EMAILS.indexOf(user.email.trim().toLowerCase()) === -1) {
       var error = new Error("You are not an admin.");
       error.code = "admin/not-authorized";
       throw error;

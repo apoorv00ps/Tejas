@@ -9,7 +9,7 @@ admin.initializeApp({
 });
 const database = admin.database();
 const TEAM_IDS = ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8"];
-const ADMIN_EMAIL = "apoorv.00ps@gmail.com";
+const ADMIN_EMAILS = ["apoorv.00ps@gmail.com", "porwalmadhav47@gmail.com"];
 
 async function requireGoogleUser(request) {
   if (!request.auth || !request.auth.uid) {
@@ -26,7 +26,7 @@ async function requireGoogleUser(request) {
     throw new HttpsError("permission-denied", "Sign in with a verified Google account.");
   }
 
-  if (email.trim().toLowerCase() !== ADMIN_EMAIL) {
+  if (!ADMIN_EMAILS.includes(email.trim().toLowerCase())) {
     throw new HttpsError("permission-denied", "This Google account is not authorized for admin access.");
   }
 }
