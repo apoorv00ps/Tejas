@@ -64,11 +64,11 @@
       return response.json();
     }).then(function (schedule) {
       var ids = Object.keys(schedule || {});
-      if (ids.length !== 92) throw new Error("Expected 92 itinerary events, received " + ids.length + ".");
+      if (ids.length !== 96) throw new Error("Expected 96 itinerary events, received " + ids.length + ".");
       var loaded = new Map();
       ids.forEach(function (id) {
         var data = schedule[id];
-        if (!data || [1, 2, 3].indexOf(Number(data.day)) === -1 ||
+        if (!data || [1, 2, 3, 4].indexOf(Number(data.day)) === -1 ||
             ["sports", "edufun", "cultural"].indexOf(data.section) === -1 ||
             !data.name || typeof data.name !== "string") {
           throw new Error("The itinerary contains an invalid event: " + id + ".");
@@ -176,7 +176,7 @@
         if (Object.keys(liveEventData).length > 0) {
           setStatus("Itinerary loaded. Firebase scores are live; choose a day and committee to edit.", "ready");
         } else {
-          setStatus("All 92 itinerary events are available locally. Firebase schedule import is being attempted.", "ready");
+          setStatus("All 96 itinerary events are available locally. Firebase schedule import is being attempted.", "ready");
         }
         synchronizeScheduleAutomatically();
       }
@@ -365,7 +365,7 @@
       return result;
     }).catch(function (err) {
       var detail = err.code ? err.code + ": " + err.message : err.message;
-      setStatus("All 92 events remain available from the bundled itinerary, but Firebase could not sync them: " +
+      setStatus("All 96 events remain available from the bundled itinerary, but Firebase could not sync them: " +
         detail + " Deploy the latest Cloud Function and check its logs, then retry.", "error");
       button.hidden = false;
     }).then(function (result) {
