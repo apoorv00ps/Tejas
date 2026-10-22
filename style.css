@@ -109,19 +109,17 @@ h2 { margin: 0; font: 400 clamp(1.7rem, 5vw, 2.3rem)/1.1 var(--display); text-wr
 
 /* Standings */
 .board { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.row { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) auto; grid-template-areas: "rank who pts" ". bar split"; column-gap: .75rem; row-gap: .45rem; align-items: center; padding-block: .85rem; border-bottom: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); grid-template-areas: "rank who" ". bar"; column-gap: .75rem; row-gap: .45rem; align-items: center; padding-block: .85rem; border-bottom: 1px solid var(--line); }
 .rank { grid-area: rank; text-align: right; font: 400 1.9rem/1 var(--display); color: var(--dim); }
 .row.first .rank { color: var(--amber); text-shadow: 0 0 16px rgba(255,193,94,.5); }
 .who { grid-area: who; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem; min-width: 0; }
 .nm { font: 600 1.15rem/1.2 var(--body); overflow-wrap: anywhere; }
 .dot { display: inline-block; flex: none; width: .7rem; height: .7rem; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
 .lead { font: 600 .62rem var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--void); background: var(--amber); padding: .15rem .4rem; border-radius: 2px; }
-.pts { grid-area: pts; font: 600 1.6rem/1 var(--mono); font-variant-numeric: tabular-nums; }
 .bar { grid-area: bar; display: flex; height: .5rem; background: var(--panel); overflow: hidden; }
 .bar b { display: block; height: 100%; background: var(--c); transition: width .7s cubic-bezier(.2,.8,.2,1); }
 .bar b:nth-child(2) { opacity: .62; }
 .bar b:nth-child(3) { opacity: .34; }
-.split { grid-area: split; font: 400 .72rem var(--mono); color: var(--dim); white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 /* Section tables */
 .tabs { display: flex; flex-wrap: wrap; gap: .5rem; padding-bottom: 1rem; }
@@ -223,9 +221,8 @@ tr.rankrow td { background: var(--panel); text-align: left; padding: .8rem .75re
   .hero-topline { gap: .35rem; }
   .hero-topline .kicker { font-size: .66rem; letter-spacing: .06em; }
   .hero-topline .brand-logo { width: clamp(76px, 22vw, 112px); }
-  .row { grid-template-columns: 2rem minmax(0, 1fr) auto; column-gap: .6rem; }
+  .row { grid-template-columns: 2rem minmax(0, 1fr); column-gap: .6rem; }
   .rank { font-size: 1.6rem; }
-  .split { font-size: .68rem; }
 }
 @media (max-width: 700px) {
   #panel .tablewrap { overflow: visible; }

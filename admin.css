@@ -21,8 +21,21 @@
 .editor-controls label { min-width: 9rem; }
 .editor-controls select { display: block; margin-top: .3rem; }
 .editor-controls .btn { align-self: end; }
-.editor-controls .btn.danger { border-color: var(--neon-deep); color: #ff9da6; }
-.editor-controls .btn.danger:hover:not(:disabled) { border-color: var(--neon); color: #fff; }
+.score-overview { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.overview-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; }
+.overview-heading h2 { margin: 0 0 .25rem !important; }
+.overview-heading .sub { margin: 0; }
+.overview-controls { margin-top: .75rem; }
+.score-overview-wrap { max-height: 70vh; overflow: auto; }
+.score-overview-table { min-width: 1160px; }
+.score-overview-table thead th { z-index: 2; min-width: 6.5rem; }
+.score-overview-table thead th:nth-child(1), .score-overview-table tbody td:nth-child(1) { position: sticky; left: 0; z-index: 3; width: 5.5rem; min-width: 5.5rem; background: var(--void); }
+.score-overview-table thead th:nth-child(2), .score-overview-table tbody td:nth-child(2) { position: sticky; left: 5.5rem; z-index: 3; width: 7rem; min-width: 7rem; background: var(--void); }
+.score-overview-table thead th:nth-child(3), .score-overview-event { position: sticky; left: 12.5rem; z-index: 3; width: 16rem; min-width: 16rem; text-align: left !important; background: var(--void); }
+.score-overview-table thead th:nth-child(-n+3) { background: var(--panel); }
+.score-overview-table tbody td:nth-child(1), .score-overview-table tbody td:nth-child(2) { white-space: nowrap; }
+.score-overview-value { font-variant-numeric: tabular-nums; }
+.score-overview .admin-empty { margin: 0; }
 .admin-table-wrap { overflow-x: auto; border-block: 1px solid var(--line); }
 .admin-table { width: 100%; min-width: 520px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .admin-table th, .admin-table td { padding: .55rem .45rem; text-align: center; border-bottom: 1px solid var(--line); }

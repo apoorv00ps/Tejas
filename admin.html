@@ -61,11 +61,40 @@
         </select>
       </label>
       <button class="btn primary" id="save-scores" type="button" disabled>Save score</button>
-      <button class="btn danger" id="reset-scores" type="button" disabled>Reset all scores to 0</button>
       <button class="btn" id="import-schedule" type="button" hidden>Retry schedule sync</button>
     </div>
     <p class="sub">Choose the day, committee, event, and team, then enter a number (decimals are allowed). Saving updates the shared scorecard and standings.</p>
     <div id="event-table"></div>
+
+    <section class="score-overview" aria-labelledby="score-overview-heading">
+      <div class="overview-heading">
+        <div>
+          <h2 id="score-overview-heading">All team scores</h2>
+          <p class="sub">View saved scores by day, committee, and event.</p>
+        </div>
+        <p class="sub" id="score-overview-count" aria-live="polite"></p>
+      </div>
+      <div class="editor-controls overview-controls">
+        <label for="overview-day">Day
+          <select id="overview-day">
+            <option value="all">All days</option>
+            <option value="1">Day 1</option>
+            <option value="2">Day 2</option>
+            <option value="3">Day 3</option>
+            <option value="4">Day 4</option>
+          </select>
+        </label>
+        <label for="overview-committee">Committee
+          <select id="overview-committee">
+            <option value="all">All committees</option>
+            <option value="sports">Sports</option>
+            <option value="edufun">Edufun</option>
+            <option value="cultural">Cultural</option>
+          </select>
+        </label>
+      </div>
+      <div id="score-overview-table"></div>
+    </section>
   </section>
 </main>
 

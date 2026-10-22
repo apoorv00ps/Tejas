@@ -16,7 +16,6 @@
   var $ = function (id) { return document.getElementById(id); };
   var status = $("admin-status"), initialized = false, db, auth, functions, unsubscribe = null;
   var scheduleSynchronizationStarted = false;
-  var resettingScores = false;
   var events = new Map(), bundledEvents = new Map(), liveEventData = {}, drafts = new Map();
   var scheduleLoadPromise = Promise.resolve(false);
 
@@ -109,6 +108,7 @@
     });
     events = merged;
     renderEvents();
+    renderScoreOverview();
   }
 
   function authorizeAdmin(credential) {
@@ -245,7 +245,6 @@
         ? "Choose an event and a team to edit that score."
         : "The itinerary schedule is being loaded. If this continues, use Retry schedule sync."));
       $("save-scores").disabled = drafts.size === 0;
-      $("reset-scores").disabled = !initialized || !bundledEvents.size || drafts.size > 0 || resettingScores;
       return;
     }
 
@@ -274,8 +273,6 @@
     input.addEventListener("input", function () {
       drafts.set(key, input.value);
       $("save-scores").disabled = drafts.size === 0;
-      $("reset-scores").disabled = !initialized || !bundledEvents.size || drafts.size > 0 || resettingScores;
-      $("reset-scores").disabled = !initialized || !bundledEvents.size || drafts.size > 0 || resettingScores;
     });
     input.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
@@ -299,6 +296,66 @@
       })[0];
       if (restore) restore.focus();
     }
+  }
+
+  function renderScoreOverview() {
+    var host = $("score-overview-table");
+    if (!host) return;
+    host.replaceChildren();
+
+    var day = $("overview-day").value;
+    var section = $("overview-committee").value;
+    var matchingEvents = Array.from(events.values()).filter(function (event) {
+      return (day === "all" || event.day === Number(day)) &&
+        (section === "all" || event.section === section);
+    }).sort(function (a, b) {
+      return a.day - b.day || a.order - b.order || a.name.localeCompare(b.name);
+    });
+
+    $("score-overview-count").textContent = matchingEvents.length + " events";
+    if (!matchingEvents.length) {
+      host.append(make("p", "admin-empty", "No events match these filters."));
+      return;
+    }
+
+    var table = make("table", "admin-table score-overview-table");
+    var head = make("thead"), headRow = make("tr");
+    ["Day", "Committee", "Event"].forEach(function (label) {
+      var th = make("th", "", label);
+      th.scope = "col";
+      headRow.append(th);
+    });
+    TEAMS.forEach(function (team) {
+      var th = make("th", "", team.name);
+      th.scope = "col";
+      th.title = team.name;
+      headRow.append(th);
+    });
+    head.append(headRow);
+
+    var body = make("tbody");
+    matchingEvents.forEach(function (event) {
+      var row = make("tr");
+      row.append(make("td", "", "Day " + event.day));
+      row.append(make("td", "", event.section === "edufun" ? "Edufun" :
+        event.section.charAt(0).toUpperCase() + event.section.slice(1)));
+      var eventCell = make("th", "score-overview-event", event.name);
+      eventCell.scope = "row";
+      var details = [event.time, event.venue].filter(Boolean).join(" · ");
+      if (details) eventCell.append(make("span", "admin-event-meta", details));
+      row.append(eventCell);
+      TEAMS.forEach(function (team) {
+        var score = event.scores[team.id];
+        row.append(make("td", "score-overview-value",
+          typeof score === "number" && Number.isFinite(score) ? String(score) : "0"));
+      });
+      body.append(row);
+    });
+
+    table.append(head, body);
+    var wrap = make("div", "admin-table-wrap score-overview-wrap");
+    wrap.append(table);
+    host.append(wrap);
   }
 
   function saveScores() {
@@ -352,38 +409,6 @@
     });
   }
 
-  function resetScores() {
-    if (!initialized || !bundledEvents.size || drafts.size || resettingScores) return;
-    if (!window.confirm("Reset every team's score for all events to 0? This cannot be undone.")) return;
-
-    var updates = {};
-    bundledEvents.forEach(function (event, eventId) {
-      TEAMS.forEach(function (team) {
-        updates["events/" + eventId + "/scores/" + team.id] = 0;
-      });
-    });
-    resettingScores = true;
-    $("reset-scores").disabled = true;
-    $("save-scores").disabled = true;
-    setStatus("Resetting all event scores…");
-    db.ref().update(updates).then(function () {
-      bundledEvents.forEach(function (event, eventId) {
-        var remote = liveEventData[eventId] || event;
-        var scores = {};
-        TEAMS.forEach(function (team) { scores[team.id] = 0; });
-        liveEventData[eventId] = Object.assign({}, remote, { scores: scores });
-      });
-      mergeEvents();
-      setStatus("All team scores have been reset to 0.", "ready");
-    }).catch(function (err) {
-      console.error("Could not reset all event scores.", err);
-      setStatus("Could not reset scores. Please try again or contact the organizer.", "error");
-    }).finally(function () {
-      resettingScores = false;
-      renderEvents();
-    });
-  }
-
   function synchronizeScheduleAutomatically() {
     if (scheduleSynchronizationStarted) return;
     scheduleSynchronizationStarted = true;
@@ -432,13 +457,14 @@
   $("google-sign-in").addEventListener("click", signInWithGoogle);
   $("day-select").addEventListener("change", renderEvents);
   $("committee-select").addEventListener("change", renderEvents);
+  $("overview-day").addEventListener("change", renderScoreOverview);
+  $("overview-committee").addEventListener("change", renderScoreOverview);
   $("event-select").addEventListener("change", renderEvents);
   $("team-select").addEventListener("change", renderEvents);
   $("save-scores").addEventListener("click", function () {
     try { saveScores(); }
     catch (err) { setStatus("Could not save score changes: " + err.message, "error"); }
   });
-  $("reset-scores").addEventListener("click", resetScores);
   $("import-schedule").addEventListener("click", synchronizeItinerarySchedule);
   $("sign-out").addEventListener("click", signOut);
   initFirebase();

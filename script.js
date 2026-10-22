@@ -334,9 +334,7 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
       var li = h("li", { class: "row", style: "--c:" + tm.color },
         h("span", { class: "rank" }),
         h("span", { class: "who" }, h("i", { class: "dot" }), h("span", { class: "nm" }, tm.name), h("span", { class: "lead", hidden: true }, "Leading")),
-        h("span", { class: "pts" }),
-        h("div", { class: "bar" }, h("b"), h("b"), h("b")),
-        h("span", { class: "split" }));
+        h("div", { class: "bar", "aria-label": "Score distribution" }, h("b"), h("b"), h("b")));
       rows.set(tm.id, li); ol.append(li);
     });
   }
@@ -351,12 +349,10 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
       $("board").append(li);
       li.classList.toggle("first", x.rank === 1 && x.total > 0);
       li.querySelector(".rank").textContent = x.rank;
-      li.querySelector(".pts").textContent = fmt(x.total);
       var bs = li.querySelectorAll(".bar b");
       bs[0].style.width = Math.max(0, x.sports / max * 100) + "%";
       bs[1].style.width = Math.max(0, x.edufun / max * 100) + "%";
       bs[2].style.width = Math.max(0, x.cultural / max * 100) + "%";
-      li.querySelector(".split").textContent = "S " + fmt(x.sports) + " · E " + fmt(x.edufun) + " · C " + fmt(x.cultural);
       var lead = li.querySelector(".lead");
       lead.hidden = !(x.rank === 1 && x.total > 0);
       lead.textContent = leaders > 1 ? "Tied lead" : "Leading";
