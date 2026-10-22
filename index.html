@@ -34,7 +34,7 @@
   </header>
 
   <div class="controls">
-    <div class="seg" id="dayseg" role="group" aria-label="Select a day to view scores"></div>
+    <div class="seg" id="dayseg" role="group" aria-label="Select a day for rankings"></div>
     <div class="actions">
       <span class="status" id="status" data-state="wait" role="status">Connecting</span>
       <button class="btn" id="orgbtn" type="button" aria-pressed="false" hidden>Organizer mode</button>
@@ -44,7 +44,7 @@
   </div>
 
   <main>
-    <section aria-labelledby="h-real">
+    <section id="committee-section" aria-labelledby="h-real">
       <div class="sec-head">
         <h2 id="h-real">Scores by committee</h2>
         <p class="sub" id="real-sub"></p>
@@ -54,6 +54,7 @@
     </section>
 
     <section id="standings-section" aria-labelledby="h-stand" hidden>
+      <div class="tabs" id="rank-tabs" role="group" aria-label="Rankings by committee"></div>
       <div class="sec-head">
         <h2 id="h-stand">Standings</h2>
         <p class="sub" id="stand-sub"></p>
@@ -65,7 +66,7 @@
   </main>
 
   <p class="foot" id="foot">Points are entered by the organizers after each event. The bar above each team splits its total into Sports, Edufun and Cultural.</p>
-  <footer class="credits" id="credits">Credits: Madhav Porwal, Himanshu Sharma, Rehan</footer>
+  <footer class="credits" id="credits">Credits: Madhav Porwal, Himanshu Sharma, Rehan, Apoorv : Student's Council.</footer>
 </div>
 
 <div class="reveal" id="reveal" role="dialog" aria-modal="true" aria-label="Winner reveal" hidden>
