@@ -9,7 +9,11 @@ admin.initializeApp({
 });
 const database = admin.database();
 const TEAM_IDS = ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8"];
-const ADMIN_EMAILS = ["apoorv.00ps@gmail.com", "porwalmadhav47@gmail.com"];
+const ADMIN_EMAILS = [
+  "apoorv.00ps@gmail.com",
+  "porwalmadhav47@gmail.com",
+  "2025btechaimldivyanshu20817@poornima.edu.in"
+];
 
 async function requireGoogleUser(request) {
   if (!request.auth || !request.auth.uid) {

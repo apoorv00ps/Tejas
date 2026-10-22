@@ -11,7 +11,11 @@
     { id: "t7", name: "The Shadow Realms", short: "TSR" },
     { id: "t8", name: "The Guardians", short: "TGU" }
   ];
-  var ADMIN_EMAILS = ["apoorv.00ps@gmail.com", "porwalmadhav47@gmail.com"];
+  var ADMIN_EMAILS = [
+    "apoorv.00ps@gmail.com",
+    "porwalmadhav47@gmail.com",
+    "2025btechaimldivyanshu20817@poornima.edu.in"
+  ];
   var MIN_SCORE = -999, MAX_SCORE = 9999;
   var $ = function (id) { return document.getElementById(id); };
   var status = $("admin-status"), initialized = false, db, auth, functions, unsubscribe = null;
