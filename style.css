@@ -125,6 +125,7 @@ h2 { margin: 0; font: 400 clamp(1.7rem, 5vw, 2.3rem)/1.1 var(--display); text-wr
 
 /* Section tables */
 .tabs { display: flex; flex-wrap: wrap; gap: .5rem; padding-bottom: 1rem; }
+.standing-window { margin: 1rem 0 .75rem; padding: .6rem .85rem; border-left: 2px solid var(--neon); background: linear-gradient(90deg, rgba(125,11,25,.22), transparent); color: var(--amber); font: 500 .75rem/1.5 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 .tabs button { min-height: 44px; padding: .4rem 1.1rem; background: transparent; border: 1px solid var(--line); border-radius: 4px; cursor: pointer; font: 400 1.15rem var(--display); color: var(--dim); }
 .tabs button[aria-pressed="true"] { color: var(--bone); border-color: var(--neon); box-shadow: 0 0 14px rgba(255,45,64,.35) inset; }
 .tablewrap { overflow-x: auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }

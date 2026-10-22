@@ -186,7 +186,45 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
     });
   }
   function curDay() {
-    return ui.day;
+    return ui.unlocked ? ui.day : standingDayAt(Date.now());
+  }
+
+  var STANDING_SWITCHES = [
+    { at: Date.parse("2026-10-24T15:00:00+05:30"), day: 2 },
+    { at: Date.parse("2026-10-25T16:00:00+05:30"), day: 3 },
+    { at: Date.parse("2026-10-26T16:00:00+05:30"), day: 4 }
+  ];
+
+  function standingDayAt(now) {
+    for (var i = 0; i < STANDING_SWITCHES.length; i++) {
+      if (now < STANDING_SWITCHES[i].at) return STANDING_SWITCHES[i].day - 1;
+    }
+    return DAYS[DAYS.length - 1];
+  }
+
+  function standingWindowLabel(day) {
+    var next = STANDING_SWITCHES.filter(function (change) { return change.day === day + 1; })[0];
+    if (!next) return "Day " + day + " standings · Final day";
+    var when = new Date(next.at).toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day: "numeric",
+      month: "short",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true
+    });
+    return "Day " + day + " standings · Day " + (day + 1) + " begins " + when + " IST";
+  }
+
+  var standingTimer = 0;
+  function scheduleStandingUpdate() {
+    clearTimeout(standingTimer);
+    if (ui.unlocked) return;
+    var now = Date.now(), next = STANDING_SWITCHES.filter(function (change) { return change.at > now; })[0];
+    if (!next) return;
+    standingTimer = setTimeout(function () {
+      renderAll(true);
+    }, next.at - now + 50);
   }
 
   /* ---------- stores ---------- */
@@ -548,6 +586,9 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
 
   function renderChrome() {
     var day = curDay();
+    $("dayseg").hidden = !isAdminView();
+    $("standing-window").hidden = isAdminView() || day === null;
+    if (!isAdminView() && day !== null) $("standing-window").textContent = standingWindowLabel(day);
     document.querySelectorAll("#dayseg button").forEach(function (b) { b.setAttribute("aria-pressed", String((b.dataset.day === "all" && day === "all") || Number(b.dataset.day) === day)); });
     document.querySelectorAll("#rank-tabs button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.sec === ui.rankSection)); });
     $("standings-section").hidden = day === null;
@@ -560,6 +601,7 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
     rb.hidden = !isAdmin();
     rb.disabled = !ok;
     rb.title = ok ? "" : "Enter some scores first";
+    scheduleStandingUpdate();
   }
 
   function renderAll(force) {
@@ -854,41 +896,33 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
   }
 
   /* ---------- wiring ---------- */
-  /* ---------- background music (optional: only when an #aud data block is present) ---------- */
+  /* ---------- background music ---------- */
   var musicDuck = function () {};
   function initMusic() {
-    var src = { textContent: window.TEJAS_MUSIC || "" }, btn = $("musicbtn");
-    if (!btn) return;
-    var data = src ? src.textContent.replace(/\s+/g, "") : "";
-    if (!data) { btn.hidden = true; return; }
+    var data = (window.TEJAS_MUSIC || "").replace(/\s+/g, "");
+    if (!data) return;
     var a = new Audio("data:audio/mpeg;base64," + data);
     a.loop = true; a.volume = .35; a.preload = "auto";
-    var playing = false, pref = "", resume = false, touched = false;
-    try { pref = localStorage.getItem("tejas_music") || ""; } catch (e) {}
-    function save(v) { try { localStorage.setItem("tejas_music", v); } catch (e) {} }
-    function paint() { btn.textContent = playing ? "Music on" : "Music off"; btn.setAttribute("aria-pressed", String(playing)); }
+    var playing = false, resume = false;
+    function first() {
+      if (!playing) play();
+    }
     function play() {
-      var p; try { p = a.play(); } catch (e) { return; }
-      if (p && p.then) p.then(function () { playing = true; paint(); }, function () { playing = false; paint(); });
-      else { playing = true; paint(); }
-    }
-    function pause() { a.pause(); playing = false; paint(); }
-    btn.hidden = false; paint();
-    btn.addEventListener("click", function () {
-      touched = true;
-      if (playing) { pause(); save("off"); } else { play(); save("on"); }
-    });
-    if (pref !== "off") {
-      play();
-      var first = function (e) {
-        if (btn.contains(e.target)) return;
+      var p;
+      try { p = a.play(); } catch (e) { return; }
+      if (p && p.then) p.then(function () {
+        playing = true;
         document.removeEventListener("pointerdown", first, true);
-        if (!touched && !playing) play();
-      };
-      document.addEventListener("pointerdown", first, true);
+      }, function () { playing = false; });
+      else {
+        playing = true;
+        document.removeEventListener("pointerdown", first, true);
+      }
     }
+    play();
+    document.addEventListener("pointerdown", first, true);
     musicDuck = function (on) {
-      if (on) { resume = playing; if (playing) { a.pause(); playing = false; paint(); } }
+      if (on) { resume = playing; if (playing) { a.pause(); playing = false; } }
       else if (resume) { resume = false; play(); }
     };
   }

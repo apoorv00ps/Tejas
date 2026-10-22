@@ -38,7 +38,6 @@
     <div class="actions">
       <span class="status" id="status" data-state="wait" role="status">Connecting</span>
       <button class="btn" id="orgbtn" type="button" aria-pressed="false" hidden>Organizer mode</button>
-      <button class="btn" id="musicbtn" type="button" aria-pressed="false" hidden>Music off</button>
       <button class="btn primary" id="revealbtn" type="button" disabled>Reveal the winner</button>
     </div>
   </div>
@@ -54,6 +53,7 @@
     </section>
 
     <section id="standings-section" aria-labelledby="h-stand" hidden>
+      <p class="standing-window" id="standing-window" aria-live="polite"></p>
       <div class="tabs" id="rank-tabs" role="group" aria-label="Rankings by committee"></div>
       <div class="sec-head">
         <h2 id="h-stand">Standings</h2>
