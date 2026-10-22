@@ -21,6 +21,8 @@
 .editor-controls label { min-width: 9rem; }
 .editor-controls select { display: block; margin-top: .3rem; }
 .editor-controls .btn { align-self: end; }
+.editor-controls .btn.danger { border-color: var(--neon-deep); color: #ff9da6; }
+.editor-controls .btn.danger:hover:not(:disabled) { border-color: var(--neon); color: #fff; }
 .admin-table-wrap { overflow-x: auto; border-block: 1px solid var(--line); }
 .admin-table { width: 100%; min-width: 520px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .admin-table th, .admin-table td { padding: .55rem .45rem; text-align: center; border-bottom: 1px solid var(--line); }

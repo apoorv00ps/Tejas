@@ -16,6 +16,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var status = $("admin-status"), initialized = false, db, auth, functions, unsubscribe = null;
   var scheduleSynchronizationStarted = false;
+  var resettingScores = false;
   var events = new Map(), bundledEvents = new Map(), liveEventData = {}, drafts = new Map();
   var scheduleLoadPromise = Promise.resolve(false);
 
@@ -26,19 +27,17 @@
 
   function initFirebase() {
     if (window.location.protocol === "file:") {
-      $("setup-notice").textContent = "Open the admin page from your Firebase Hosting HTTPS URL. Google sign-in verification and score editing do not work from a local file.";
+      $("setup-notice").textContent = "Please open the admin page from the official website.";
       $("setup-notice").hidden = false;
       $("google-sign-in").disabled = true;
-      setStatus("A secure web address is required for admin sign-in.", "error");
+      setStatus("Admin access is unavailable from this page.", "error");
       return;
     }
 
     var config = window.TEJAS_FIREBASE_CONFIG;
     if (!config || !config.projectId || !window.firebase || !firebase.apps) {
-      $("setup-notice").textContent = "Admin sign-in and score editing are disabled until Firebase project configuration is available.";
-      $("setup-notice").hidden = false;
       $("google-sign-in").disabled = true;
-      setStatus("Firebase setup required. Admin access is controlled by Firebase Authentication.", "error");
+      setStatus("Admin access is temporarily unavailable. Please contact the organizer.", "error");
       return;
     }
     try {
@@ -46,15 +45,16 @@
       auth = app.auth();
       db = app.database();
       db.ref(".info/connected").on("value", function (snapshot) {
-        if (!snapshot.val()) setStatus("Waiting for a Realtime Database connection…");
+        if (!snapshot.val()) setStatus("Connecting to live scores…");
       });
       functions = app.functions("us-central1");
       initialized = true;
       $("setup-notice").hidden = true;
-      setStatus("Firebase configured. Deploy the database rules before editing scores.", "ready");
+      setStatus("Admin access is ready.", "ready");
       scheduleLoadPromise = loadBundledSchedule();
     } catch (err) {
-      setStatus("Firebase could not be initialized: " + err.message, "error");
+      console.error("Admin access initialization failed.", err);
+      setStatus("Admin access is temporarily unavailable. Please contact the organizer.", "error");
     }
   }
 
@@ -88,7 +88,8 @@
       mergeEvents();
       return true;
     }).catch(function (err) {
-      setStatus("Could not load the bundled itinerary: " + err.message, "error");
+      console.error("Could not load the published event list.", err);
+      setStatus("Could not load the event list. Please refresh or contact the organizer.", "error");
       return false;
     });
   }
@@ -125,7 +126,7 @@
     $("login-card").hidden = true;
     $("editor").hidden = false;
     $("signed-in-as").textContent = user.email;
-    setStatus("Signed in with Google. Scores are synchronized with Firebase.", "ready");
+    setStatus("Signed in. Scores are ready to edit.", "ready");
     subscribeEvents();
     return Promise.resolve(credential);
   }
@@ -170,7 +171,8 @@
     if (unsubscribe) unsubscribe();
     var eventsRef = db.ref("events");
     function onError(err) {
-      setStatus("Could not load events from Firebase: " + err.message, "error");
+      console.error("Could not load live scores.", err);
+      setStatus("Could not load live scores. Please refresh or contact the organizer.", "error");
     }
     scheduleLoadPromise.then(function () {
       function onValue(snapshot) {
@@ -178,9 +180,9 @@
         $("import-schedule").hidden = true;
         mergeEvents();
         if (Object.keys(liveEventData).length > 0) {
-          setStatus("Itinerary loaded. Firebase scores are live; choose a day and committee to edit.", "ready");
+          setStatus("Scores are ready. Choose a day and committee to edit.", "ready");
         } else {
-          setStatus("All 96 itinerary events are available locally. Firebase schedule import is being attempted.", "ready");
+          setStatus("The event list is ready. Loading the latest scores…", "ready");
         }
         synchronizeScheduleAutomatically();
       }
@@ -243,6 +245,7 @@
         ? "Choose an event and a team to edit that score."
         : "The itinerary schedule is being loaded. If this continues, use Retry schedule sync."));
       $("save-scores").disabled = drafts.size === 0;
+      $("reset-scores").disabled = !initialized || !bundledEvents.size || drafts.size > 0 || resettingScores;
       return;
     }
 
@@ -271,6 +274,8 @@
     input.addEventListener("input", function () {
       drafts.set(key, input.value);
       $("save-scores").disabled = drafts.size === 0;
+      $("reset-scores").disabled = !initialized || !bundledEvents.size || drafts.size > 0 || resettingScores;
+      $("reset-scores").disabled = !initialized || !bundledEvents.size || drafts.size > 0 || resettingScores;
     });
     input.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
@@ -310,7 +315,7 @@
     });
     var button = $("save-scores");
     button.disabled = true;
-    setStatus("Saving score changes directly to Realtime Database…");
+    setStatus("Saving score changes…");
     var eventUpdates = new Map();
     updates.forEach(function (update) {
       var eventUpdate = eventUpdates.get(update.eventId);
@@ -341,12 +346,41 @@
       mergeEvents();
       setStatus("Score changes saved and synchronized.", "ready");
     }).catch(function (err) {
-      var detail = err.code ? err.code + ": " + err.message : err.message;
-      if (err.code === "PERMISSION_DENIED" || err.code === "database/permission-denied") {
-        detail += " Deploy the updated database.rules.json and confirm you are signed in with the verified admin Google account.";
-      }
-      setStatus("Could not save score changes: " + detail, "error");
+      console.error("Could not save score changes.", err);
+      setStatus("Could not save score changes. Please try again or contact the organizer.", "error");
       button.disabled = false;
+    });
+  }
+
+  function resetScores() {
+    if (!initialized || !bundledEvents.size || drafts.size || resettingScores) return;
+    if (!window.confirm("Reset every team's score for all events to 0? This cannot be undone.")) return;
+
+    var updates = {};
+    bundledEvents.forEach(function (event, eventId) {
+      TEAMS.forEach(function (team) {
+        updates["events/" + eventId + "/scores/" + team.id] = 0;
+      });
+    });
+    resettingScores = true;
+    $("reset-scores").disabled = true;
+    $("save-scores").disabled = true;
+    setStatus("Resetting all event scores…");
+    db.ref().update(updates).then(function () {
+      bundledEvents.forEach(function (event, eventId) {
+        var remote = liveEventData[eventId] || event;
+        var scores = {};
+        TEAMS.forEach(function (team) { scores[team.id] = 0; });
+        liveEventData[eventId] = Object.assign({}, remote, { scores: scores });
+      });
+      mergeEvents();
+      setStatus("All team scores have been reset to 0.", "ready");
+    }).catch(function (err) {
+      console.error("Could not reset all event scores.", err);
+      setStatus("Could not reset scores. Please try again or contact the organizer.", "error");
+    }).finally(function () {
+      resettingScores = false;
+      renderEvents();
     });
   }
 
@@ -368,13 +402,12 @@
       }
       return result;
     }).catch(function (err) {
-      var detail = err.code ? err.code + ": " + err.message : err.message;
-      setStatus("All 96 events remain available from the bundled itinerary, but Firebase could not sync them: " +
-        detail + " Deploy the latest Cloud Function and check its logs, then retry.", "error");
+      console.error("Could not refresh the published event list.", err);
+      setStatus("Could not refresh event details. You can still use the published event list; try again later.", "error");
       button.hidden = false;
     }).then(function (result) {
       if (result) {
-        setStatus("Itinerary schedule synchronized. Existing scores were preserved.", "ready");
+        setStatus("Event details are up to date. Scores were kept.", "ready");
       }
     }).finally(function () {
       button.disabled = false;
@@ -391,7 +424,8 @@
       renderEvents();
       setStatus("Signed out.", "ready");
     }).catch(function (err) {
-      setStatus("Could not sign out: " + err.message, "error");
+      console.error("Could not sign out.", err);
+      setStatus("Could not sign out. Please try again.", "error");
     });
   }
 
@@ -404,6 +438,7 @@
     try { saveScores(); }
     catch (err) { setStatus("Could not save score changes: " + err.message, "error"); }
   });
+  $("reset-scores").addEventListener("click", resetScores);
   $("import-schedule").addEventListener("click", synchronizeItinerarySchedule);
   $("sign-out").addEventListener("click", signOut);
   initFirebase();

@@ -19,7 +19,7 @@
   <p class="admin-intro">Sign in with the approved Google account to edit event scores.</p>
 
   <p id="setup-notice" class="notice" role="status" hidden></p>
-  <p id="admin-status" class="notice" role="status" aria-live="polite">Checking Firebase setup…</p>
+  <p id="admin-status" class="notice" role="status" aria-live="polite">Preparing admin access…</p>
 
   <section class="admin-card" id="login-card" aria-labelledby="login-heading">
     <h2 id="login-heading">Admin sign in</h2>
@@ -61,6 +61,7 @@
         </select>
       </label>
       <button class="btn primary" id="save-scores" type="button" disabled>Save score</button>
+      <button class="btn danger" id="reset-scores" type="button" disabled>Reset all scores to 0</button>
       <button class="btn" id="import-schedule" type="button" hidden>Retry schedule sync</button>
     </div>
     <p class="sub">Choose the day, committee, event, and team, then enter a number (decimals are allowed). Saving updates the shared scorecard and standings.</p>
