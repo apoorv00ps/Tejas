@@ -10,14 +10,23 @@
     }
   ],
   "hosting": {
-    "public": ".",
+    "public": "public",
     "ignore": [
       "firebase.json",
-      ".firebaserc",
-      "database.rules.json",
-      "README.md",
-      "functions/**",
-      "node_modules/**"
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "/assets/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+          }
+        ]
+      }
     ]
   }
 }
+

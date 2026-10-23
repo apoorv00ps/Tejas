@@ -2,18 +2,22 @@
 
 const admin = require("firebase-admin");
 const { HttpsError, onCall } = require("firebase-functions/v2/https");
-const eventSchedule = require("./events.seed.json");
+const eventSchedule = require("./data/events.seed.json");
 
 admin.initializeApp({
   databaseURL: "https://tejas-3c29b-default-rtdb.firebaseio.com"
 });
 const database = admin.database();
 const TEAM_IDS = ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8"];
+<<<<<<< HEAD
 const ADMIN_EMAILS = [
   "apoorv.00ps@gmail.com",
   "porwalmadhav47@gmail.com",
   "2025btechaimldivyanshu20817@poornima.edu.in"
 ];
+=======
+const ADMIN_EMAILS = ["apoorv.00ps@gmail.com", "porwalmadhav47@gmail.com", "2025btechaimldivyanshu20817@poornima.edu.in"];
+>>>>>>> a77666377864fc253468817d860b44e2f0bde98d
 
 async function requireGoogleUser(request) {
   if (!request.auth || !request.auth.uid) {
