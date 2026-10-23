@@ -2,23 +2,23 @@
 
 ## Repository layout
 
-Firebase Hosting serves the `public/` directory, and that directory is self-contained. Everything the browser loads — markup, styles, scripts, the Firebase config, the event seed, and the audio assets — lives under `public/`.
+Firebase Hosting serves the `public/` directory, and that directory is self-contained. The root `index.html` is the GitHub Pages entrypoint; it loads the same student app and assets from `public/`.
 
 ```
 public/
-  index.html                 student scoreboard
+  index.html                 Firebase Hosting student scoreboard
   admin.html                 admin score editor
   assets/css/                stylesheets
   assets/js/config/          firebase-config.js (Firebase web config)
   assets/js/student/         student modules (ES modules)
   assets/js/admin/           admin modules (ES modules)
-  assets/data/               events.seed.json (92 events, Days 1-3)
+  assets/data/               events.seed.json (admin) and student-events.seed.json (public, Days 1-4)
   audio/                     tejas-theme.mp3, tejas-winner.mp3
 functions/                   Cloud Functions (schedule initializer)
 scripts/dev-server.js        zero-dependency local preview server
 ```
 
-The root-level `index.html`, `admin.html`, `style.css`, `admin.css`, `script.js`, `admin.js`, and `firebase-config.js` were legacy duplicates from before the restructure. They were removed because they were never deployed, nothing in `public/` referenced them, and they had drifted — they still pointed at a deleted `style.css`, embedded the outdated pre-restructure schedule, and included a selector for a day that the canonical itinerary does not contain. Everything they provided now lives under `public/`, and the canonical schedule lives in `public/assets/data/events.seed.json`.
+Firebase Hosting uses `public/index.html` as its homepage. GitHub Pages can use the root `index.html`; that copy points its app assets and admin link into `public/`, so both hosts open the same frontend without changing the hosting configuration.
 
 To preview locally, run `node scripts/dev-server.js` and open `http://localhost:8080/`. The server serves `public/` with the correct MIME types so the ES modules load without a build step.
 

@@ -4,15 +4,13 @@ import { TEAMS, SEC_IDS, DAYS } from "./constants.js";
 import { num } from "./dom.js";
 import { state } from "./state.js";
 
-/* Fallback schedule (the published 92-event itinerary). Loaded once from
- * assets/data/events.seed.json — the same file the admin page uses — so the
- * board renders instantly and still works if the database is unreachable. */
+/* Public-only fallback schedule, separate from the admin's event seed. */
 var embeddedSchedule = new Map();
 
 export function loadEmbeddedSchedule() {
-  return fetch("./assets/data/events.seed.json", { cache: "no-store" })
+  return fetch(new URL("../../data/student-events.seed.json", import.meta.url), { cache: "no-store" })
     .then(function (response) {
-      if (!response.ok) throw new Error("Could not fetch events.seed.json (HTTP " + response.status + ").");
+      if (!response.ok) throw new Error("Could not fetch student-events.seed.json (HTTP " + response.status + ").");
       return response.json();
     })
     .then(function (schedule) {
@@ -65,10 +63,10 @@ export function dayEvents(day, sec) {
 }
 
 /* Per-team totals, optionally limited to events up to a given day. */
-export function totals(maxDay) {
+export function totals(maxDay, section) {
   var t = {};
   TEAMS.forEach(function (tm) { t[tm.id] = { sports: 0, edufun: 0, cultural: 0, total: 0 }; });
-  var scoreEvents = maxDay === Infinity ? evList(Infinity) : dayEvents(maxDay);
+  var scoreEvents = maxDay === Infinity ? evList(Infinity, section) : dayEvents(maxDay, section);
   scoreEvents.forEach(function (e) {
     if (SEC_IDS.indexOf(e.section) < 0) return;
     TEAMS.forEach(function (tm) {
@@ -80,8 +78,8 @@ export function totals(maxDay) {
 }
 
 /* Teams sorted by total with competition ranking (ties share a rank). */
-export function ranked(maxDay) {
-  var t = totals(maxDay);
+export function ranked(maxDay, section) {
+  var t = totals(maxDay, section);
   var arr = TEAMS.map(function (tm) {
     var x = t[tm.id];
     return { team: tm, sports: x.sports, edufun: x.edufun, cultural: x.cultural, total: x.total, rank: 0 };

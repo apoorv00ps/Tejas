@@ -18,9 +18,9 @@ export var SECTIONS = [
 ];
 
 export var SEC_IDS = SECTIONS.map(function (s) { return s.id; });
-export var DAYS = [1, 2, 3];
+export var DAYS = [1, 2, 3, 4];
 export var MIN_SCORE = -999, MAX_SCORE = 9999;
 
 /* Points awarded by finishing position when organizers rank an event. */
 export var PLACE_POINTS = [10, 8, 6, 5, 4, 3, 2, 1];
-export var DAY_LABELS = ["Day 1", "Day 2", "Day 3"];
+export var DAY_LABELS = ["Day 1", "Day 2", "Day 3", "Day 4"];

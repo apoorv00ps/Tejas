@@ -1,71 +1,85 @@
 /* ---------- main: chrome rendering, wiring and boot (the shell of script.js) ---------- */
 
-import { TEAMS, SECTIONS, DAYS, DAY_LABELS } from "./constants.js";
+import { TEAMS, SECTIONS, DAYS } from "./constants.js";
 import { h, $ } from "./dom.js";
-import { state, viewMode, isAdminView, isAdmin } from "./state.js";
+import { state, viewMode, isAdminView } from "./state.js";
 import { loadEmbeddedSchedule, embeddedEvents, mergeScheduleWithEmbedded, dayEvents, curDay, hasScores } from "./data.js";
 import { makeDbStore } from "./store.js";
 import { setStatus, toast } from "./feedback.js";
-import { buildTable, buildAdd, loadStarter, draft } from "./table.js";
+import { buildTable } from "./table.js";
 import { renderStandings, buildBoard } from "./standings.js";
 import { buildLights, startSpores } from "./visuals.js";
 import { startReveal, closeReveal } from "./reveal.js";
 import { initMusic } from "./audio.js";
 
 var lastSig = "";
+var standingSwitches = [
+  { at: Date.parse("2026-10-23T18:00:00+05:30"), day: 2 },
+  { at: Date.parse("2026-10-24T18:00:00+05:30"), day: 3 },
+  { at: Date.parse("2026-10-25T18:00:00+05:30"), day: 4 }
+];
+var standingTimer = 0;
+
+function standingDayAt(now) {
+  for (var i = 0; i < standingSwitches.length; i++) {
+    if (now < standingSwitches[i].at) return standingSwitches[i].day - 1;
+  }
+  return DAYS[DAYS.length - 1];
+}
+
+function standingWindowLabel(day) {
+  var next = standingSwitches.filter(function (change) { return change.day === day + 1; })[0];
+  if (!next) return "Day " + day + " standings · Final day";
+  var when = new Date(next.at).toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    day: "numeric",
+    month: "short",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true
+  });
+  return "Day " + day + " standings · Day " + next.day + " begins " + when + " IST";
+}
+
+function scheduleStandingUpdate() {
+  clearTimeout(standingTimer);
+  var now = Date.now(), next = standingSwitches.filter(function (change) { return change.at > now; })[0];
+  if (!next) return;
+  standingTimer = setTimeout(function () {
+    state.ui.day = standingDayAt(Date.now());
+    renderAll(true);
+  }, next.at - now + 50);
+}
 
 function renderSections() {
-  var day = curDay(), panel = $("panel"), editing = state.ui.edit && isAdmin();
-  var ae = document.activeElement, keep = null;
-  if (ae && ae.classList && ae.classList.contains("score")) keep = { sel: 'input.score[data-id="' + (window.CSS && CSS.escape ? CSS.escape(ae.dataset.id) : ae.dataset.id) + '"][data-team="' + ae.dataset.team + '"]', val: ae.value };
-  else if (ae && ae.id === "newname") keep = { sel: "#newname", val: draft.name };
-  panel.replaceChildren();
-
+  var day = curDay();
   document.querySelectorAll("#tabs button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.sec === state.ui.section)); });
-
-  if (day === null) {
-    panel.append(h("div", { class: "empty" }, h("p", null, "Choose a day above to view that day's events and scores for each team in the selected committee.")));
-  } else if (state.events.size === 0) {
-    var box = h("div", { class: "empty" });
-    if (state.ui.unlocked && !state.canWrite) {
-      box.append(h("p", null, "The board is empty, and this account can't save scores yet. Ask the owner of the page for Editor access."));
-    } else if (state.canWrite && isAdminView()) {
-      var btn = h("button", { class: "btn primary", type: "button" }, "Load starter events");
-      btn.addEventListener("click", function () { loadStarter(btn); });
-      box.append(h("p", null, "The board is empty. Load a starter schedule with six events per section across the three days, then rename or delete anything you don't need."), btn);
-    } else if (state.noDb) {
-      box.append(h("p", null, "The live scoreboard is only shown to signed-in viewers. Sign in to TEJAS and open this page again."));
-    } else {
-      box.append(h("p", null, "Nothing on the board yet. Scores appear here as soon as the organizers enter them."));
-    }
-    panel.append(box);
-  } else {
-    panel.append(buildTable(state.ui.section, day));
-    panel.append(h("div", { class: "key" }, TEAMS.map(function (tm) { return h("span", { style: "--c:" + tm.color }, h("i", { class: "dot" }), tm.short + " " + tm.name); })));
-    if (dayEvents(day, state.ui.section).length === 0) {
-      panel.append(h("div", { class: "empty" }, h("p", null, "No " + state.ui.section + " events on Day " + day + " yet.")));
-    }
-    if (editing) panel.append(buildAdd(state.ui.section));
-  }
-  if (keep) {
-    var n = panel.querySelector(keep.sel);
-    if (n) { n.value = keep.val; n.focus(); }
-  }
-  $("real-sub").textContent = day === null
-    ? SECTIONS.filter(function (s) { return s.id === state.ui.section; })[0].label + " committee · choose a day"
-    : editing ? "Organizer mode · type points and press Tab" : SECTIONS.filter(function (s) { return s.id === state.ui.section; })[0].label + " · Day " + day;
+  $("real-sub").textContent = SECTIONS.filter(function (s) { return s.id === state.ui.section; })[0].label;
 }
 
 function renderChrome() {
   var day = curDay();
-  document.querySelectorAll("#dayseg button").forEach(function (b) { b.setAttribute("aria-pressed", String(Number(b.dataset.day) === day)); });
   $("standings-section").hidden = day === null;
+  $("standing-window").textContent = day === null ? "" : standingWindowLabel(day);
+  var scorecard = $("scorecard-section"), scorePanel = $("panel");
+  scorecard.hidden = day === null;
+  if (day !== null) {
+    $("scorecard-sub").textContent = SECTIONS.filter(function (s) { return s.id === state.ui.section; })[0].label + " · Day " + day;
+    scorePanel.replaceChildren(buildTable(state.ui.section, day));
+    scorePanel.append(h("div", { class: "key" }, TEAMS.map(function (tm) {
+      return h("span", { style: "--c:" + tm.color }, h("i", { class: "dot" }), tm.short + " " + tm.name);
+    })));
+    if (dayEvents(day, state.ui.section).length === 0) {
+      scorePanel.append(h("div", { class: "empty" }, h("p", null, "No " + state.ui.section + " events on Day " + day + " yet.")));
+    }
+  }
   /* The reveal ceremony is a display feature for the closing event, so the
    * button stays visible; it stays disabled until real scores exist.
    * (Organizer *editing* lives on admin.html — see the README.) */
   var rb = $("revealbtn"), ok = hasScores();
   rb.disabled = !ok;
   rb.title = ok ? "" : "Enter some scores first";
+  scheduleStandingUpdate();
 }
 
 /* Exported so table.js can request a re-render (e.g. after an edit). The
@@ -82,20 +96,16 @@ export function renderAll(force) {
 function applyView() {
   var adm = isAdminView();
   var k = $("kicker");
-  k.replaceChildren(h("span", { class: "viewtag" }, adm ? "Admin panel" : "Live scoreboard"), document.createTextNode(" \u00b7 Hostel Fest \u00b7 3 days \u00b7 8 teams"));
+  k.replaceChildren(h("span", { class: "viewtag" }, adm ? "Admin panel" : "Live scoreboard"), document.createTextNode(" \u00b7 Hostel Fest \u00b7 " + DAYS.length + " days \u00b7 8 teams"));
   $("foot").textContent = adm
     ? "Admin panel. Students see the same live scores, without any of these controls."
-    : "Scores are refreshed by the organizers after each event. The bar above each team splits its total into Sports, Edufun and Cultural.";
+    : "Standings and event scores show the current day's results for the selected committee.";
   $("credits").hidden = adm;
   document.title = "TEJAS 2.0 Live";
 }
 
 function wire() {
   initMusic();
-  var seg = $("dayseg");
-  DAYS.forEach(function (d) {
-    seg.append(h("button", { type: "button", "data-day": d, "aria-pressed": "false", onclick: function () { state.ui.day = d; renderAll(); } }, DAY_LABELS[d - 1]));
-  });
   var tabs = $("tabs");
   SECTIONS.forEach(function (s) {
     tabs.append(h("button", { type: "button", "data-sec": s.id, "aria-pressed": String(s.id === state.ui.section), onclick: function () { state.ui.section = s.id; renderAll(); } }, s.label));
@@ -110,6 +120,7 @@ function wire() {
 }
 
 async function init() {
+  state.ui.day = standingDayAt(Date.now());
   applyView(); buildLights(); startSpores(); buildBoard(); wire();
   renderAll(true);
   state.canWrite = false; state.ui.unlocked = false; state.ui.role = "student";

@@ -1,0 +1,1730 @@
+{
+  "sports-d1-bench-press-boys-quarter-final-semi-final": {
+    "day": 1,
+    "name": "Bench Press Boys (Quarter-Final, Semi-Final)",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "University Gym",
+    "order": 6,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-deadlift-boys-quarter-final-semi-final": {
+    "day": 1,
+    "name": "Deadlift Boys (Quarter-Final, Semi-Final)",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "University Gym",
+    "order": 7,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-box-cricket-boys-quarter-final-semi-final": {
+    "day": 1,
+    "name": "Box Cricket Boys (Quarter-Final)",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Cricket Ground",
+    "order": 8,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d1-the-vecna-challenge": {
+    "day": 1,
+    "name": "The Vecna Challenge",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "PIHM Classroom",
+    "order": 9,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-holly-s-kitchen": {
+    "day": 1,
+    "name": "Holly's Kitchen",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "PIHM Mess",
+    "order": 10,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-steve-and-dustin-best-duo-challenge": {
+    "day": 1,
+    "name": "Steve And Dustin: Best Duo Challenge",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Cafe Gram",
+    "order": 11,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-guess-the-character": {
+    "day": 1,
+    "name": "Guess the Character",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Cricket Ground",
+    "order": 12,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-the-hawkins-demolition-crew": {
+    "day": 1,
+    "name": "The Hawkins Demolition Crew",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Parking Area",
+    "order": 13,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-think-fast-and-build-smart": {
+    "day": 1,
+    "name": "Think Fast And Build Smart",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Academic Block (Porch Area)",
+    "order": 14,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-steve-and-dustin-best-duo-challenge-2": {
+    "day": 1,
+    "name": "Steve And Dustin: Best Duo Challenge",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Behind Admin 2",
+    "order": 15,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "cultural-d1-stand-up": {
+    "day": 1,
+    "name": "Stand Up",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Ground Floor Seminar Hall",
+    "order": 16,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "cultural-d1-character-play": {
+    "day": 1,
+    "name": "Character Play",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Main Stage (Cricket Ground)",
+    "order": 17,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "cultural-d1-rap-battle": {
+    "day": 1,
+    "name": "Rap Battle",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Parking Area",
+    "order": 18,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "cultural-d1-stage-act": {
+    "day": 1,
+    "name": "Stage Act",
+    "time": "11:30 PM - 1:30 AM",
+    "venue": "Porch Area",
+    "order": 19,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "sports-d1-squats-boys-quarter-final-semi-final": {
+    "day": 1,
+    "name": "Squats Boys (Quarter-Final, Semi-Final)",
+    "time": "11:30 PM - 1:30 PM",
+    "venue": "University Gym",
+    "order": 20,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-push-up-boys-quarter-final-semi-final": {
+    "day": 1,
+    "name": "Push-Up Boys (Quarter-Final, Semi-Final)",
+    "time": "1:30 AM - 3:00 AM",
+    "venue": "University Gym",
+    "order": 21,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-plank-boys-quarter-final-semi-final": {
+    "day": 1,
+    "name": "Plank Boys (Quarter-Final, Semi-Final)",
+    "time": "1:30 AM - 3:00 AM",
+    "venue": "University Gym",
+    "order": 22,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-chess-mix-finals": {
+    "day": 1,
+    "name": "Chess Mix (Finals)",
+    "time": "1:30 AM - 3:00 AM",
+    "venue": "Academic Block (In front of Lounge Area)",
+    "order": 23,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-volleyball-boys-girls-quarter-finals": {
+    "day": 1,
+    "name": "Volleyball Boys & Girls (Quarter-Finals)",
+    "time": "1:30 AM - 3:00 AM",
+    "venue": "Volleyball Court",
+    "order": 24,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-kabaddi-boys-girls-quarter-finals": {
+    "day": 1,
+    "name": "Kabaddi Boys &Girls (Quarter-Finals)",
+    "time": "1:30 AM - 3:00 AM",
+    "venue": "Kabaddi Court",
+    "order": 25,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-basketball-boys-girls-quarter-finals": {
+    "day": 1,
+    "name": "Basketball Boys & Girls (Quarter-Finals)",
+    "time": "1:30 AM - 3:00 AM",
+    "venue": "Basketball Court",
+    "order": 26,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-football-5-a-side-boys-quarter-finals": {
+    "day": 1,
+    "name": "Football 5-A-Side Boys (Quarter-Finals)",
+    "time": "1:30 AM - 3:00 AM",
+    "venue": "Football Ground",
+    "order": 27,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "cultural-d1-dance-battle": {
+    "day": 1,
+    "name": "Dance Battle",
+    "time": "1:30 AM - 3:00 AM",
+    "venue": "Main Stage (Cricket Ground)",
+    "order": 28,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "sports-d1-tug-of-war-boys-quarter-final-semi-final": {
+    "day": 1,
+    "name": "Tug Of War Boys (Quarter-Final, Semi-Final)",
+    "time": "1:30 AM - 3:30 AM",
+    "venue": "Football Ground",
+    "order": 29,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d1-communicate-with-the-upside-down": {
+    "day": 1,
+    "name": "Communicate With The Upside Down",
+    "time": "1:30 AM - 3:30 AM",
+    "venue": "Ground Floor Seminar Hall",
+    "order": 30,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-friends-don-t-lie": {
+    "day": 1,
+    "name": "Friends Don't Lie",
+    "time": "1:30 AM - 3:30 PM",
+    "venue": "PIHM Classroom",
+    "order": 31,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-vecna-s-freeze-frame": {
+    "day": 1,
+    "name": "Vecna's Freeze Frame",
+    "time": "1:30 AM - 3:30 PM",
+    "venue": "Road behind Basketball Court",
+    "order": 32,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-demogorgon-the-shadow-world": {
+    "day": 1,
+    "name": "Demogorgon & The Shadow World",
+    "time": "1:30 AM - 3:30 PM",
+    "venue": "Behind Admin 1",
+    "order": 33,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d1-the-hawkins-infiltration": {
+    "day": 1,
+    "name": "The Hawkins Infiltration",
+    "time": "1:30 AM - 4:30 AM",
+    "venue": "Road in front of Academic Block",
+    "order": 34,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "sports-d1-tennis-boys-girls-quarter-finals": {
+    "day": 1,
+    "name": "Tennis Boys & Girls (Quarter Finals)",
+    "time": "3:00 AM - 4:30 AM",
+    "venue": "Tennis Court",
+    "order": 35,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-pickle-ball-boys-girls-quarter-finals": {
+    "day": 1,
+    "name": "Pickle Ball Boys & Girls (Quarter-Finals)",
+    "time": "3:00 AM - 4:30 AM",
+    "venue": "Pickle Ball Court",
+    "order": 36,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-100m-sprint-boys-girls-quarter-finals-semi-finals": {
+    "day": 1,
+    "name": "100m Sprint Boys & Girls (Quarter-Finals, Semi-Finals)",
+    "time": "3:00 AM - 4:30 AM",
+    "venue": "Cricket Ground",
+    "order": 37,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d1-400m-sprint-boys-girls-quarter-finals-semi-finals": {
+    "day": 1,
+    "name": "400m Sprint Boys & Girls (Quarter-Finals, Semi-Finals)",
+    "time": "3:00 AM - 4:30 AM",
+    "venue": "Cricket Ground",
+    "order": 38,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-tug-of-war-boys-finals": {
+    "day": 2,
+    "name": "Tug of War Boys (Finals)",
+    "time": "6:00 PM - 7:00 PM",
+    "venue": "Football Ground",
+    "order": 3,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-bench-press-boys-finals": {
+    "day": 2,
+    "name": "Bench Press Boys (Finals)",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "University Gym",
+    "order": 4,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-deadlift-boys-finals": {
+    "day": 2,
+    "name": "Deadlift Boys (Finals)",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "University Gym",
+    "order": 5,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-squats-boys-girls-finals": {
+    "day": 2,
+    "name": "Squats Boys & Girls (Finals)",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "University Gym",
+    "order": 6,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-push-up-boys-girls-finals": {
+    "day": 2,
+    "name": "Push-up Boys & Girls (Finals)",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "University Gym",
+    "order": 7,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-plank-boys-girls-finals": {
+    "day": 2,
+    "name": "Plank Boys & Girls (Finals)",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "University Gym",
+    "order": 8,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-box-cricket-boys-semi-finals-finals": {
+    "day": 2,
+    "name": "Box Cricket Boys (Semi Finals & Finals)",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "Cricket Ground",
+    "order": 9,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-carrom-finals": {
+    "day": 2,
+    "name": "Carrom (Finals)",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "In front of Gym",
+    "order": 10,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-tug-of-war-girls-quarter-finals-semi-finals": {
+    "day": 2,
+    "name": "Tug of War Girls (Quarter Finals & Semi Finals)",
+    "time": "7:00 PM - 8:00 PM",
+    "venue": "Football Ground",
+    "order": 11,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d2-the-hawkins-lab-tests": {
+    "day": 2,
+    "name": "The Hawkins Lab Tests",
+    "time": "7:00 PM - 9:00 PM",
+    "venue": "Basement Seminar Hall",
+    "order": 12,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d2-grab-will-byers-from-uma-ma-am": {
+    "day": 2,
+    "name": "Grab Will Byers From UMA MA'AM",
+    "time": "7:00 PM - 9:00 PM",
+    "venue": "Academic Block",
+    "order": 13,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d2-the-upside-down-treasure-hunt": {
+    "day": 2,
+    "name": "The Upside Down Treasure Hunt",
+    "time": "7:00 PM - 9:00 PM",
+    "venue": "Behind Admin-1",
+    "order": 15,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "sports-d2-volleyball-boys-girls-semi-finals": {
+    "day": 2,
+    "name": "Volleyball Boys & Girls (Semi Finals)",
+    "time": "8:00 PM - 10:00 PM",
+    "venue": "Volleyball Court",
+    "order": 17,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-kabaddi-boys-girls-semi-finals": {
+    "day": 2,
+    "name": "Kabaddi Boys & Girls (Semi Finals)",
+    "time": "8:00 PM - 10:00 PM",
+    "venue": "Kabaddi Court",
+    "order": 18,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-football-5-a-side-boys-semi-finals": {
+    "day": 2,
+    "name": "Football 5-A-Side Boys (Semi Finals)",
+    "time": "8:00 PM - 10:00 PM",
+    "venue": "Football Ground",
+    "order": 19,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-tennis-boys-girls-semi-finals-finals": {
+    "day": 2,
+    "name": "Tennis Boys & Girls ( Semi Finals & Finals )",
+    "time": "8:00 PM - 10:00 PM",
+    "venue": "Tennis Court",
+    "order": 20,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d2-lights-out-memory-game": {
+    "day": 2,
+    "name": "Lights Out Memory Game",
+    "time": "9:00 PM - 11:00 PM",
+    "venue": "Academic Block",
+    "order": 21,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d2-one-word-one-scene": {
+    "day": 2,
+    "name": "One Word One Scene",
+    "time": "9:00 PM - 11:00 PM",
+    "venue": "Cricket Ground/ In Front Of Cafe Gram",
+    "order": 22,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d2-guess-the-song": {
+    "day": 2,
+    "name": "Guess the song",
+    "time": "9:00 PM - 11:00 PM",
+    "venue": "Academic Block",
+    "order": 23,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d2-code-red-transmission": {
+    "day": 2,
+    "name": "Code red transmission",
+    "time": "9:00 PM - 11:00 PM",
+    "venue": "Behind Admin-1",
+    "order": 25,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "cultural-d2-flip-the-script": {
+    "day": 2,
+    "name": "Flip the script",
+    "time": "9:00 PM - 11:00 PM",
+    "venue": "Parking area",
+    "order": 26,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "cultural-d2-prom": {
+    "day": 2,
+    "name": "Prom",
+    "time": "9:00 PM - 11:00 PM",
+    "venue": "Cricket ground",
+    "order": 14,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "cultural-d2-techno-dance": {
+    "day": 2,
+    "name": "Techno dance",
+    "time": "9:00 PM - 11:00 PM",
+    "venue": "Cricket ground",
+    "order": 27,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "cultural-d2-indian-version-of-stranger-things": {
+    "day": 2,
+    "name": "Indian version of stranger things",
+    "time": "10:00 PM - 11:00 PM",
+    "venue": "Academic block",
+    "order": 28,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "sports-d2-basketball-boys-girls-semi-finals": {
+    "day": 2,
+    "name": "Basket ball Boys & Girls(Semi Finals)",
+    "time": "10:00 PM - 12:00 PM",
+    "venue": "Basketball Court",
+    "order": 29,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-pickle-ball-boys-girls-semi-finals": {
+    "day": 2,
+    "name": "Pickle ball Boys & Girls ( Semi Finals )",
+    "time": "10:00 PM - 12:00 PM",
+    "venue": "Pickleball Court",
+    "order": 30,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-100m-sprint-boys-girls-finals": {
+    "day": 2,
+    "name": "100m Sprint Boys & Girls (Finals)",
+    "time": "10:00 PM - 12:00 PM",
+    "venue": "Cricket Ground",
+    "order": 31,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-400m-sprint-boys-girls-finals": {
+    "day": 2,
+    "name": "400m Sprint Boys & Girls (Finals)",
+    "time": "10:00 PM - 12:00 PM",
+    "venue": "Cricket Ground",
+    "order": 32,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d2-shadows-of-the-mind-flayer": {
+    "day": 2,
+    "name": "Shadows Of The Mind Flayer",
+    "time": "11:00 PM - 1:00 AM",
+    "venue": "In Front Of Gym",
+    "order": 33,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d2-do-not-press-the-red-button": {
+    "day": 2,
+    "name": "Do Not Press The Red Button",
+    "time": "11:00 PM - 1:00 AM",
+    "venue": "In Front Of Canteen",
+    "order": 34,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d2-the-hawkins-sound-department": {
+    "day": 2,
+    "name": "The Hawkins Sound Department",
+    "time": "11:00 PM - 1:00 AM",
+    "venue": "Gate NO. 2",
+    "order": 35,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "cultural-d2-dance-drama": {
+    "day": 2,
+    "name": "Dance drama",
+    "time": "11:00 PM - 1:00 AM",
+    "venue": "Cricket ground",
+    "order": 36,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "sports-d2-arm-wrestling-boys-finals": {
+    "day": 2,
+    "name": "Arm Wrestling Boys (Finals)",
+    "time": "12:00 PM - 2:00 AM",
+    "venue": "University Gym",
+    "order": 37,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d2-badminton-boys-girls-semi-finals": {
+    "day": 2,
+    "name": "Badminton Boys & Girls (Semi Finals)",
+    "time": "12:00 PM - 2:00 AM",
+    "venue": "Badminton Court",
+    "order": 38,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d2-the-three-chair-challenge": {
+    "day": 2,
+    "name": "The Three-Chair Challenge",
+    "time": "1:00 AM - 3:00 AM",
+    "venue": "Academic Block",
+    "order": 39,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d3-three-legged-hawkins-run": {
+    "day": 3,
+    "name": "Three Legged Hawkins Run",
+    "time": "5:00 PM - 6:00 PM",
+    "venue": "Football Ground",
+    "order": 4,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d3-stranger-things-brand-wars": {
+    "day": 3,
+    "name": "Stranger Things Brand Wars",
+    "time": "5:00 PM - 6:00 PM",
+    "venue": "Academic Block",
+    "order": 5,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "sports-d3-billiards-mix-finals": {
+    "day": 3,
+    "name": "Billiards Mix (Finals)",
+    "time": "5:00 PM - 8:00 PM",
+    "venue": "H2 Hostel ,1st Floor",
+    "order": 1,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d3-volleyball-boys-girls-finals": {
+    "day": 3,
+    "name": "Volleyball Boys & Girls ( Finals)",
+    "time": "5:00 PM - 7:00 PM",
+    "venue": "Volleyball Court",
+    "order": 6,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d3-kabaddi-boys-girls-finals": {
+    "day": 3,
+    "name": "Kabaddi Boys & Girls ( Finals)",
+    "time": "5:00 PM - 7:00 PM",
+    "venue": "Kabaddi Court",
+    "order": 7,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d3-arm-wrestling-girls": {
+    "day": 3,
+    "name": "Arm wrestling Girls (Finals)",
+    "time": "5:00 PM - 7:00 PM",
+    "venue": "University Gym",
+    "order": 8,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "cultural-d3-group-singing": {
+    "day": 3,
+    "name": "Group Singing",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "CafeGram",
+    "order": 10,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "cultural-d3-bollywood-munch": {
+    "day": 3,
+    "name": "Bollywood munch",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "Cricket ground",
+    "order": 11,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "sports-d3-tug-of-war-girls-finals": {
+    "day": 3,
+    "name": "Tug of War Girls (Finals)",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "Football Ground",
+    "order": 12,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d3-football-5-a-side-boys-finals": {
+    "day": 3,
+    "name": "Football 5-A side Boys ( Finals)",
+    "time": "6:00 PM - 8:00 PM",
+    "venue": "Football Ground",
+    "order": 13,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d3-badminton-boys-girls-semi-final-finals": {
+    "day": 3,
+    "name": "Badminton Boys & Girls ( semi final & Finals)",
+    "time": "5:00 PM - 8:00 PM",
+    "venue": "Badminton Court",
+    "order": 2,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d3-breaching-the-gate-seven-stone": {
+    "day": 4,
+    "name": "Breaching The Gate Seven Stone",
+    "time": "5:00 PM - 6:00 PM",
+    "venue": "Gate no. 2",
+    "order": 1,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d3-water-relay-the-hawkins-pool-rescue": {
+    "day": 4,
+    "name": "Water Relay: The Hawkins Pool Rescue",
+    "time": "5:00 PM - 6:00 PM",
+    "venue": "Behind Basketball Court",
+    "order": 2,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "cultural-d3-fashion-show": {
+    "day": 4,
+    "name": "Fashion show",
+    "time": "5:00 PM - 7:00 PM",
+    "venue": "Cricket ground",
+    "order": 4,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "cultural-d3-shabd-e-kala": {
+    "day": 4,
+    "name": "Shabd-e-kala",
+    "time": "5:00 PM - 6:00 PM",
+    "venue": "Behind CafeGram",
+    "order": 3,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "cultural-d3-mehfil-e-stranger-things": {
+    "day": 4,
+    "name": "Mehfil-e-stranger things",
+    "time": "5:00 PM - 6:00 PM",
+    "venue": "Parking area",
+    "order": 5,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "cultural"
+  },
+  "sports-d3-basketball-boys-girls-finals": {
+    "day": 4,
+    "name": "Basketball Boys & Girls ( Finals)",
+    "time": "5:00 PM - 6:30 PM",
+    "venue": "Basketball Ground",
+    "order": 7,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "sports-d3-pickle-ball-boys-girls-semi-final-finals": {
+    "day": 4,
+    "name": "Pickle ball Boys & Girls ( Finals)",
+    "time": "5:00 PM - 6:30 PM",
+    "venue": "Pickle Ball Court",
+    "order": 8,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d3-soft-ball-dodgeball-hawkins-arena": {
+    "day": 3,
+    "name": "Soft ball Dodgeball Hawkins Arena",
+    "time": "6:00 PM - 7:00 PM",
+    "venue": "Volleyball Court",
+    "order": 9,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "sports-d3-table-tennis-mix": {
+    "day": 4,
+    "name": "Table Tennis Mix",
+    "time": "5:00 PM - 8:00 PM",
+    "venue": "Front of H1 Hostel",
+    "order": 9,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d3-upside-down-sack-race": {
+    "day": 4,
+    "name": "Upside Down Sack Race",
+    "time": "6:00 PM - 7:00 PM",
+    "venue": "Road Infront of Academic Block",
+    "order": 10,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d3-the-upside-down-photo-studio": {
+    "day": 4,
+    "name": "The Upside Down Photo Studio",
+    "time": "6:00 PM - 7:00 PM",
+    "venue": "Behind Cafegram",
+    "order": 12,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d3-portal-toss": {
+    "day": 4,
+    "name": "Portal Toss",
+    "time": "7:00 PM - 8:00 PM",
+    "venue": "Gate no. 2",
+    "order": 13,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d3-hawkins-air-mail": {
+    "day": 4,
+    "name": "Hawkins Air Mail",
+    "time": "6:00 PM - 7:00 PM",
+    "venue": "Gate no. 2",
+    "order": 11,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "edufun-d2-the-hawkins-infiltration": {
+    "day": 2,
+    "name": "The Hawkins Infiltration",
+    "time": "5:00 PM - 8:00 PM",
+    "venue": "Road in front of Academic Block",
+    "order": 1,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "sports-d2-box-cricket-boys-semi-final": {
+    "day": 2,
+    "name": "Box Cricket Boys (Semi-Final)",
+    "time": "5:00 PM - 8:00 PM",
+    "venue": "Football Ground",
+    "order": 2,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  },
+  "edufun-d3-the-hawkins-infiltration": {
+    "day": 3,
+    "name": "The Hawkins Infiltration",
+    "time": "5:00 PM - 8:00 PM",
+    "venue": "Road in front of Academic Block",
+    "order": 3,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "edufun"
+  },
+  "sports-d4-box-cricket-boys-finals": {
+    "day": 4,
+    "name": "Box Cricket Boys (Finals)",
+    "time": "5:00 PM - 7:00 PM",
+    "venue": "Football Ground",
+    "order": 6,
+    "scores": {
+      "t1": 0,
+      "t2": 0,
+      "t3": 0,
+      "t4": 0,
+      "t5": 0,
+      "t6": 0,
+      "t7": 0,
+      "t8": 0
+    },
+    "section": "sports"
+  }
+}

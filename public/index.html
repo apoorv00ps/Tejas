@@ -35,14 +35,9 @@
   </header>
 
   <div class="controls">
-    <div class="seg" id="dayseg" role="group" aria-label="Select a day for rankings"></div>
     <div class="actions">
       <span class="status" id="status" data-state="wait" role="status">Connecting</span>
-<<<<<<< HEAD:index.html
-      <button class="btn" id="orgbtn" type="button" aria-pressed="false" hidden>Organizer mode</button>
-=======
       <button class="btn" id="musicbtn" type="button" aria-pressed="false" hidden>Music off</button>
->>>>>>> a77666377864fc253468817d860b44e2f0bde98d:public/index.html
       <button class="btn primary" id="revealbtn" type="button" disabled>Reveal the winner</button>
     </div>
   </div>
@@ -50,30 +45,27 @@
   <main>
     <section id="committee-section" aria-labelledby="h-real">
       <div class="sec-head">
-        <h2 id="h-real">Scores by committee</h2>
+        <h2 id="h-real">Select committee</h2>
         <p class="sub" id="real-sub"></p>
       </div>
       <div class="tabs" id="tabs" role="group" aria-label="Committee"></div>
-      <div id="panel"></div>
     </section>
 
     <section id="standings-section" aria-labelledby="h-stand" hidden>
       <p class="standing-window" id="standing-window" aria-live="polite"></p>
-      <div class="tabs" id="rank-tabs" role="group" aria-label="Rankings by committee"></div>
       <div class="sec-head">
         <h2 id="h-stand">Standings</h2>
         <p class="sub" id="stand-sub"></p>
-        <div class="legend" aria-label="Bar segments"><span><i></i>Sports</span><span><i></i>Edufun</span><span><i></i>Cultural</span></div>
       </div>
       <ol class="board" id="board"></ol>
-      <section id="scorecard-section" aria-labelledby="h-scorecard" hidden>
-        <div class="sec-head">
-          <h2 id="h-scorecard">Scorecard</h2>
-          <p class="sub" id="scorecard-sub"></p>
-        </div>
-        <div class="tabs" id="scorecard-tabs" role="group" aria-label="Scorecard by committee"></div>
-        <div id="scorecard-panel"></div>
-      </section>
+    </section>
+
+    <section id="scorecard-section" aria-labelledby="h-scorecard" hidden>
+      <div class="sec-head">
+        <h2 id="h-scorecard">Scorecard</h2>
+        <p class="sub" id="scorecard-sub"></p>
+      </div>
+      <div id="panel"></div>
     </section>
 
   </main>

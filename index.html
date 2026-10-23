@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0608">
+<title>TEJAS 2.0 Live</title>
+<link rel="icon" type="image/svg+xml" href="public/assets/img/favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Rozha+One&family=Playfair+Display:wght@900&display=swap">
+<link rel="stylesheet" href="public/assets/css/main.css">
+</head>
+<body>
+<canvas id="spores" aria-hidden="true"></canvas>
+<div class="crt" aria-hidden="true"></div>
+<div class="storm" aria-hidden="true"></div>
+
+<div id="app">
+  <div class="wall" id="wall" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="hero-topline">
+      <p class="kicker" id="kicker"></p>
+      <a class="brand-link" href="public/admin.html" target="_blank" rel="noopener noreferrer" aria-label="Open the TEJAS admin page in a new tab">
+        <img class="brand-logo" src="public/assets/img/tejas-logo.png" alt="TEJAS logo">
+      </a>
+    </div>
+    <div class="title">
+      <div class="title-lockup">
+        <h1 class="neon" data-t="TEJAS 2.0">TEJAS<span class="ver"> 2.0</span></h1>
+      </div>
+      <div class="mirror neon" aria-hidden="true"><span>TEJAS<span class="ver"> 2.0</span></span></div>
+    </div>
+    <p class="subtitle">The Hostel Fest</p>
+    <p class="tag">Friends don’t lie, and neither does this scoreboard. Poornima’s hostels have entered the Upside Down. Only one team makes it out.</p>
+  </header>
+
+  <div class="controls">
+    <div class="actions">
+      <span class="status" id="status" data-state="wait" role="status">Connecting</span>
+      <button class="btn" id="musicbtn" type="button" aria-pressed="false" hidden>Music off</button>
+      <button class="btn primary" id="revealbtn" type="button" disabled>Reveal the winner</button>
+    </div>
+  </div>
+
+  <main>
+    <section id="committee-section" aria-labelledby="h-real">
+      <div class="sec-head">
+        <h2 id="h-real">Select committee</h2>
+        <p class="sub" id="real-sub"></p>
+      </div>
+      <div class="tabs" id="tabs" role="group" aria-label="Committee"></div>
+    </section>
+
+    <section id="standings-section" aria-labelledby="h-stand" hidden>
+      <p class="standing-window" id="standing-window" aria-live="polite"></p>
+      <div class="sec-head">
+        <h2 id="h-stand">Standings</h2>
+        <p class="sub" id="stand-sub"></p>
+      </div>
+      <ol class="board" id="board"></ol>
+    </section>
+
+    <section id="scorecard-section" aria-labelledby="h-scorecard" hidden>
+      <div class="sec-head">
+        <h2 id="h-scorecard">Scorecard</h2>
+        <p class="sub" id="scorecard-sub"></p>
+      </div>
+      <div id="panel"></div>
+    </section>
+
+  </main>
+
+  <p class="foot" id="foot">Points are entered by the organizers after each event. The bar above each team splits its total into Sports, Edufun and Cultural.</p>
+  <footer class="credits" id="credits">Credits: Madhav Porwal, Himanshu Sharma, Rehan, Apoorv · Students' Council, PU.</footer>
+</div>
+
+<div class="reveal" id="reveal" role="dialog" aria-modal="true" aria-label="Winner reveal" hidden>
+  <div class="rv-rays" id="rv-rays" aria-hidden="true"></div>
+  <canvas id="rv-burst" aria-hidden="true"></canvas>
+  <canvas id="rv-conf" aria-hidden="true"></canvas>
+  <div class="rv-pulse" id="rv-pulse" aria-hidden="true"></div>
+  <div class="rv-flash" id="rv-flash"></div>
+  <div class="rv-top">
+    <button class="btn" id="rv-replay" type="button">Replay</button>
+    <button class="btn" id="rv-close" type="button">Close</button>
+  </div>
+  <div class="rv-stage">
+    <p class="rv-kick" id="rv-kick"></p>
+    <div class="rv-count" id="rv-count" aria-live="assertive"></div>
+    <div class="rv-win" id="rv-win" hidden></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="public/assets/js/config/firebase-config.js"></script>
+<script type="module" src="public/assets/js/student/main.js"></script>
+</body>
+</html>

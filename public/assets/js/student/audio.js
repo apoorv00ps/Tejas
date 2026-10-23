@@ -9,7 +9,7 @@ export function initMusic() {
   var btn = $("musicbtn");
   if (!btn) return;
   /* Was: data:audio/mpeg;base64,<1MB inline string> — now a real asset file. */
-  var a = new Audio("./audio/tejas-theme.mp3");
+  var a = new Audio(new URL("../../../audio/tejas-theme.mp3", import.meta.url));
   a.loop = true; a.volume = .35; a.preload = "auto";
   var playing = false, pref = "", resume = false, touched = false;
   try { pref = localStorage.getItem("tejas_music") || ""; } catch (e) {}
@@ -169,7 +169,7 @@ var winAud = null;
 
 /* Prime the fanfare: play once muted so the browser unlocks later playback. */
 export function winUnlock() {
-  if (!winAud) { winAud = new Audio("./audio/tejas-winner.mp3"); winAud.preload = "auto"; winAud.volume = 1; }
+  if (!winAud) { winAud = new Audio(new URL("../../../audio/tejas-winner.mp3", import.meta.url)); winAud.preload = "auto"; winAud.volume = 1; }
   try {
     winAud.muted = true;
     var p = winAud.play();
