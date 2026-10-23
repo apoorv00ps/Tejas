@@ -98,7 +98,7 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
   var store = null;
   var canWrite = false;
   var noDb = false;
-  var ui = { day: null, section: "sports", rankSection: "sports", edit: false, rank: null, unlocked: false, admin: "", role: null, who: "" };
+  var ui = { day: null, section: "sports", rankSection: "sports", scoreSection: "sports", edit: false, rank: null, unlocked: false, admin: "", role: null, who: "" };
   /* Signing in as a developer or organizer shows the admin tools. Students only watch. */
   function viewMode() { return ui.unlocked ? "admin" : "students"; }
   function isAdminView() { return ui.unlocked; }
@@ -190,9 +190,9 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
   }
 
   var STANDING_SWITCHES = [
-    { at: Date.parse("2026-10-24T15:00:00+05:30"), day: 2 },
-    { at: Date.parse("2026-10-25T16:00:00+05:30"), day: 3 },
-    { at: Date.parse("2026-10-26T16:00:00+05:30"), day: 4 }
+    { at: Date.parse("2026-10-24T18:00:00+05:30"), day: 2 },
+    { at: Date.parse("2026-10-25T18:00:00+05:30"), day: 3 },
+    { at: Date.parse("2026-10-26T18:00:00+05:30"), day: 4 }
   ];
 
   function standingDayAt(now) {
@@ -361,6 +361,28 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
       ? "All committees"
       : SECTIONS.filter(function (s) { return s.id === ui.rankSection; })[0].label;
     $("stand-sub").textContent = (day === "all" ? "Scores for all days" : "Scores for Day " + day) + " · " + committee;
+    renderPublicScorecard(day);
+  }
+
+  function renderPublicScorecard(day) {
+    var section = $("scorecard-section");
+    var panel = $("scorecard-panel");
+    section.hidden = isAdminView() || day === null || day === "all";
+    if (section.hidden) return;
+
+    document.querySelectorAll("#scorecard-tabs button").forEach(function (button) {
+      button.setAttribute("aria-pressed", String(button.dataset.sec === ui.scoreSection));
+    });
+    $("scorecard-sub").textContent = SECTIONS.filter(function (s) { return s.id === ui.scoreSection; })[0].label + " · Day " + day;
+    panel.replaceChildren();
+    var dayCommitteeEvents = dayEvents(day, ui.scoreSection);
+    panel.append(buildTable(ui.scoreSection, day));
+    panel.append(h("div", { class: "key" }, TEAMS.map(function (tm) {
+      return h("span", { style: "--c:" + tm.color }, h("i", { class: "dot" }), tm.short + " " + tm.name);
+    })));
+    if (dayCommitteeEvents.length === 0) {
+      panel.append(h("div", { class: "empty" }, h("p", null, "No " + ui.scoreSection + " events on Day " + day + " yet.")));
+    }
   }
 
   /* ---------- section tables ---------- */
@@ -601,7 +623,7 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
   }
 
   function renderAll(force) {
-    var sig = JSON.stringify(Array.from(events.entries())) + "|" + ui.section + "|" + ui.rankSection + "|" + curDay() + "|" + ui.edit + "|" + canWrite + "|" + noDb + "|" + ui.rank + "|" + ui.unlocked + "|" + viewMode() + "|" + ui.role;
+    var sig = JSON.stringify(Array.from(events.entries())) + "|" + ui.section + "|" + ui.rankSection + "|" + ui.scoreSection + "|" + curDay() + "|" + ui.edit + "|" + canWrite + "|" + noDb + "|" + ui.rank + "|" + ui.unlocked + "|" + viewMode() + "|" + ui.role;
     if (!force && sig === lastSig) return;
     lastSig = sig;
     if (curDay() !== null) renderStandings();
@@ -933,6 +955,10 @@ window.TEJAS_WIN = "SUQzBAAAAAABG1RBTEIAAAApAAADU3RyYW5nZXIgVGhpbmdzIFRoZW1lIFNv
     var rankTabs = $("rank-tabs");
     SECTIONS.concat([{ id: "all", label: "All committees" }]).forEach(function (s) {
       rankTabs.append(h("button", { type: "button", "data-sec": s.id, "aria-pressed": String(s.id === ui.rankSection), onclick: function () { ui.rankSection = s.id; renderAll(); } }, s.label));
+    });
+    var scorecardTabs = $("scorecard-tabs");
+    SECTIONS.forEach(function (s) {
+      scorecardTabs.append(h("button", { type: "button", "data-sec": s.id, "aria-pressed": String(s.id === ui.scoreSection), onclick: function () { ui.scoreSection = s.id; renderAll(); } }, s.label));
     });
     var tabs = $("tabs");
     SECTIONS.forEach(function (s) {
