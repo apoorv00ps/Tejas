@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0608">
 <title>TEJAS 2.0 Live</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Rozha+One&family=Playfair+Display:wght@900&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 <canvas id="spores" aria-hidden="true"></canvas>
@@ -20,7 +21,7 @@
     <div class="hero-topline">
       <p class="kicker" id="kicker"></p>
       <a class="brand-link" href="admin.html" target="_blank" rel="noopener noreferrer" aria-label="Open the TEJAS admin page in a new tab">
-        <img class="brand-logo" src="Tejas%20Logo-Photoroom.png" alt="TEJAS logo">
+        <img class="brand-logo" src="assets/img/tejas-logo.png" alt="TEJAS logo">
       </a>
     </div>
     <div class="title">
@@ -37,7 +38,6 @@
     <div class="seg" id="dayseg" role="group" aria-label="Select a day to view scores"></div>
     <div class="actions">
       <span class="status" id="status" data-state="wait" role="status">Connecting</span>
-      <button class="btn" id="orgbtn" type="button" aria-pressed="false" hidden>Organizer mode</button>
       <button class="btn" id="musicbtn" type="button" aria-pressed="false" hidden>Music off</button>
       <button class="btn primary" id="revealbtn" type="button" disabled>Reveal the winner</button>
     </div>
@@ -88,7 +88,7 @@
 <div class="toast" id="toast" role="status" hidden></div>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="script.js"></script>
+<script src="assets/js/config/firebase-config.js"></script>
+<script type="module" src="assets/js/student/main.js"></script>
 </body>
 </html>
